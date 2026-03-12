@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe - AI Powered Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <h2>Tic Tac Toe</h2>
+            </div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#game" class="nav-link">Play</a></li>
+                <li><a href="#features" class="nav-link">Features</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="nav-toggle">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1 class="hero-title">Tic Tac Toe <span class="highlight">Reimagined</span></h1>
+            <p class="hero-subtitle">Experience the classic game with cutting-edge AI technology that learns and adapts to your playing style</p>
+            <div class="hero-buttons">
+                <a href="#game" class="btn btn-primary">Play Now</a>
+                <a href="#features" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="floating-game-board">
+                <div class="mini-cell"></div>
+                <div class="mini-cell"></div>
+                <div class="mini-cell"></div>
+                <div class="mini-cell"></div>
+                <div class="mini-cell x"></div>
+                <div class="mini-cell"></div>
+                <div class="mini-cell"></div>
+                <div class="mini-cell"></div>
+                <div class="mini-cell o"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Game Section -->
+    <section id="game" class="game-section">
+        <div class="container">
+            <h2 class="section-title">Start Playing</h2>
+            <p class="section-subtitle">Choose your game mode and challenge yourself or our AI</p>
+            
+            <div class="game-container">
+                <div class="game-mode">
+                    <h3>Game Mode</h3>
+                    <div class="mode-buttons">
+                        <button class="mode-btn active" id="pvpMode">Player vs Player</button>
+                        <button class="mode-btn" id="aiMode">Player vs AI</button>
+                    </div>
+                    <div class="ai-difficulty" id="aiDifficulty" style="display: none;">
+                        <h4>AI Difficulty</h4>
+                        <div class="difficulty-buttons">
+                            <button class="diff-btn" data-level="easy">Easy</button>
+                            <button class="diff-btn active" data-level="medium">Medium</button>
+                            <button class="diff-btn" data-level="hard">Hard</button>
+                            <button class="diff-btn" data-level="adaptive">Adaptive</button>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="score-board">
+                    <div class="score x-score">
+                        <h3 id="x-label">Player X</h3>
+                        <p id="x-score">0</p>
+                    </div>
+                    <div class="score">
+                        <h3>Draws</h3>
+                        <p id="draw-score">0</p>
+                    </div>
+                    <div class="score o-score">
+                        <h3 id="o-label">Player O</h3>
+                        <p id="o-score">0</p>
+                    </div>
+                </div>
+
+                <div class="status" id="status">Player X's turn</div>
+                
+                <div class="game-board" id="gameBoard">
+                    <div class="cell" data-cell-index="0"></div>
+                    <div class="cell" data-cell-index="1"></div>
+                    <div class="cell" data-cell-index="2"></div>
+                    <div class="cell" data-cell-index="3"></div>
+                    <div class="cell" data-cell-index="4"></div>
+                    <div class="cell" data-cell-index="5"></div>
+                    <div class="cell" data-cell-index="6"></div>
+                    <div class="cell" data-cell-index="7"></div>
+                    <div class="cell" data-cell-index="8"></div>
+                </div>
+                
+                <div class="controls">
+                    <button class="reset-btn" id="resetBtn">New Game</button>
+                    <button class="reset-btn ai-reset" id="aiResetBtn" style="display: none;">Reset AI Learning</button>
+                </div>
+                
+                <div class="ai-stats" id="aiStats" style="display: none;">
+                    <h4>AI Learning Stats</h4>
+                    <div class="stats-grid">
+                        <div class="stat">
+                            <span class="stat-label">Games Played:</span>
+                            <span class="stat-value" id="aiGamesPlayed">0</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Win Rate:</span>
+                            <span class="stat-value" id="aiWinRate">0%</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-label">Learning Level:</span>
+                            <span class="stat-value" id="aiLearningLevel">1</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features-section">
+        <div class="container">
+            <h2 class="section-title">Amazing Features</h2>
+            <p class="section-subtitle">Discover what makes our Tic Tac Toe game special</p>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon ai-icon"></div>
+                    <h3>Smart AI Opponent</h3>
+                    <p>Advanced AI with multiple difficulty levels that adapts and learns from your playing style</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon ml-icon"></div>
+                    <h3>Machine Learning</h3>
+                    <p>Our AI uses reinforcement learning to improve over time and become a better opponent</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon game-icon"></div>
+                    <h3>Multiple Game Modes</h3>
+                    <p>Play against friends or challenge our AI in various difficulty levels</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon stats-icon"></div>
+                    <h3>Performance Tracking</h3>
+                    <p>Track your progress and watch the AI learn and improve through statistics</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon storage-icon"></div>
+                    <h3>Persistent Storage</h3>
+                    <p>Your scores and AI learning data are saved locally and persist between sessions</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon design-icon"></div>
+                    <h3>Beautiful Design</h3>
+                    <p>Modern, cinematic interface with smooth animations and visual effects</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <h2 class="section-title">How to Play</h2>
+            <p class="section-subtitle">Learn the rules and master the game</p>
+            
+            <div class="about-content">
+                <div class="rules-section">
+                    <h3>Game Rules</h3>
+                    <ul class="rules-list">
+                        <li>The game is played on a 3×3 grid</li>
+                        <li>Player X always goes first</li>
+                        <li>Players take turns placing their marks (X or O)</li>
+                        <li>The first player to get 3 marks in a row wins</li>
+                        <li>If all 9 squares are filled without a winner, it's a draw</li>
+                    </ul>
+                </div>
+                
+                <div class="ai-section">
+                    <h3>AI Difficulty Levels</h3>
+                    <div class="difficulty-info">
+                        <div class="difficulty-item">
+                            <h4>Easy</h4>
+                            <p>Perfect for beginners - AI makes random moves</p>
+                        </div>
+                        <div class="difficulty-item">
+                            <h4>Medium</h4>
+                            <p>Balanced challenge - AI mixes strategy with some randomness</p>
+                        </div>
+                        <div class="difficulty-item">
+                            <h4>Hard</h4>
+                            <p>Ultimate challenge - AI uses perfect minimax algorithm</p>
+                        </div>
+                        <div class="difficulty-item">
+                            <h4>Adaptive</h4>
+                            <p>Dynamic difficulty - AI learns and adapts to your play style</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Get in Touch</h2>
+            <p class="section-subtitle">Have questions or feedback? We'd love to hear from you</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <p>support@tictactoe.ai</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Website</h3>
+                        <p>www.tictactoe.ai</p>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Feedback</h3>
+                        <p>Help us improve the game with your suggestions</p>
+                    </div>
+                </div>
+                
+                <div class="social-links">
+                    <h3>Follow Us</h3>
+                    <div class="social-buttons">
+                        <a href="#" class="social-btn">Twitter</a>
+                        <a href="#" class="social-btn">GitHub</a>
+                        <a href="#" class="social-btn">LinkedIn</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>Tic Tac Toe AI</h3>
+                    <p>The classic game reimagined with artificial intelligence</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#home">Home</a></li>
+                        <li><a href="#game">Play Game</a></li>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#about">About</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Technologies</h3>
+                    <ul>
+                        <li>HTML5</li>
+                        <li>CSS3</li>
+                        <li>JavaScript</li>
+                        <li>Machine Learning</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2024 Tic Tac Toe AI. Built with passion and artificial intelligence</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
